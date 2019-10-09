@@ -5,7 +5,8 @@ import App from './components'
 const routes = (
     <Router>
         <Switch>
-            <Route path="/" component={App} />
+            <Route exact path="/" component={App} />
+            <Route path="/movie/:id" component={App} />
         </Switch>
     </Router>
 );

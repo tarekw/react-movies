@@ -1,19 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Results from './containers/Results'
-import { getResults } from '../actions';
+import AllResults from './containers/AllResults'
+import Movie from './containers/Movie'
+import { getResults, getDetails } from '../actions';
 
 export class App extends React.Component {
+    handleClick = id => {
+        this.props.history.push(`/movie/${id}`);
+    }
+
+    componentDidUpdate() {
+        const { id } = this.props.match.params;
+        if (typeof id !== 'undefined') {
+            this.props.getDetails(id);
+        }
+    }
+
     componentDidMount() {
-        this.props.getResults();
+        const { id } = this.props.match.params;
+        if (typeof id !== 'undefined') {
+            this.props.getDetails(id);
+        } else {
+            this.props.getResults();
+        }
+
     }
 
     render() {
+        const { id } = this.props.match.params;
+        if (typeof id !== 'undefined') {
+            return (
+                <Movie />
+            )
+        }
         return (
-            <div>
-                <Results />
-            </div>
+            <AllResults handleClick={this.handleClick} />
         );
     }
 };
@@ -25,6 +47,9 @@ const mapDispatchToProps = dispatch => {
         getResults: () => {
             dispatch(getResults());
         },
+        getDetails: id => {
+            dispatch(getDetails(id));
+        }
     };
 }
 

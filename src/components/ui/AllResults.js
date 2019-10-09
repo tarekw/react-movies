@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Results = ({ results=[] }) => {
+const AllResults = ({ results=[], handleClick=f=>f }) => {
     return results.map((item, i) => {
         return (
-            <div key={item.id}>
+            <div key={item.id} onClick={() => handleClick(item.id)}>
                 {item.title}
             </div>
         );
     });
 }
 
-Results.propTypes = {
+AllResults.propTypes = {
     results: PropTypes.array.isRequired
 }
 
-export default Results
+export default AllResults
