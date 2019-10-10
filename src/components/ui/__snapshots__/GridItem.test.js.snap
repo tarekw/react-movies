@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly with default props 1`] = `<div />`;
+
+exports[`should render correctly with mocked props 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "padding": "10px",
+        "width": "300px",
+      }
+    }
+  >
+    <WithStyles(ForwardRef(Card))>
+      <WithStyles(ForwardRef(CardMedia))
+        image="https://image.tmdb.org/t/p/w300//udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+        style={
+          Object {
+            "height": 450,
+            "width": 300,
+          }
+        }
+      />
+      <WithStyles(ForwardRef(CardContent))>
+        <WithStyles(ForwardRef(Rating))
+          name="half-rating"
+          precision={0.5}
+          value={4.35}
+        />
+        <WithStyles(ForwardRef(Typography))
+          component="h2"
+          gutterBottom={true}
+          variant="headline"
+        >
+          Joker
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(CardContent))>
+    </WithStyles(ForwardRef(Card))>
+  </div>
+</div>
+`;

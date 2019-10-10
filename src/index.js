@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import C from './constants'
 import routes from './routes'
 import sampleData from './initialState'
 import storeFactory from './store'
